@@ -6,7 +6,8 @@ services:
     image: houssse/docker-project-74
     command: make test
     depends_on:
-      - db
+        db:
+          condition: service_healthy
     environment:
       DATABASE_HOST: ${DATABASE_HOST}
       DATABASE_PORT: ${DATABASE_PORT}
